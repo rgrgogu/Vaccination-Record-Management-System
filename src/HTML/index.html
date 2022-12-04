@@ -22,6 +22,13 @@
       referrerpolicy="no-referrer"
     />
 
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+      integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
     <link rel="stylesheet" href="../CSS/NavigationBar.css" />
   </head>
   <body>
@@ -39,9 +46,14 @@
               <span class="fs-4">VAXpress</span>
             </a>
             <hr />
-            <ul class="nav nav-pills flex-column mb-auto" >
+            <ul class="nav nav-pills flex-column mb-auto">
               <li class="nav-item">
-                <a href="#home" class="nav-link active" aria-current="page">
+                <a
+                  href="#home"
+                  class="nav-link active"
+                  onclick="home()"
+                  aria-current="page"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -61,7 +73,11 @@
                 </a>
               </li>
               <li>
-                <a href="#" class="nav-link text-white">
+                <a
+                  href="#myImmunization"
+                  class="nav-link text-white"
+                  onclick="btnMy()"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -219,7 +235,7 @@
           </div> -->
 
           <!-- HOME SECTION -->
-          <div class="col d-flex flex-column h-sm-100">
+          <div class="col d-flex flex-column">
             <main class="row">
               <div class="col pt-4" id="home">
                 <h3>Welcome! Russell Obsequio</h3>
@@ -399,6 +415,178 @@
                 ></iframe>
               </div>
             </main>
+
+            <section class="row">
+              <div class="col pt-4" id="myImmunization">
+                <div class="pb-3">
+                  <h1>VACCINATION CARD</h1>
+                  <hr />
+                  <p>
+                    This digital vaccine card includes your immunization car,
+                    medical information about the vaccine you have received.
+                  </p>
+                  <p>QUEZON CITY HEALTH DEPARTMENT</p>
+                </div>
+                <form
+                  class="row g-3 px-3 pb-3 bg-danger bg-opacity-10 border border-danger border-start-0 border-end-0"
+                >
+                  <div class="col-md-4">
+                    <label for="" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" id="" />
+                  </div>
+                  <div class="col-md-4">
+                    <label for="" class="form-label">Given Name</label>
+                    <input type="text" class="form-control" id="" />
+                  </div>
+                  <div class="col-md-3">
+                    <label for="" class="form-label">Middle Name</label>
+                    <input type="text" class="form-control" id="" />
+                  </div>
+                  <div class="col-md-1">
+                    <label for="" class="form-label">Suffix</label>
+                    <input type="text" class="form-control" id="" />
+                  </div>
+                  <div class="col-md-3">
+                    <label for="" class="form-label">Date of Birth</label>
+                    <input type="text" class="form-control" id="" />
+                  </div>
+                  <div class="col-md-1">
+                    <label for="" class="form-label">Sex</label>
+                    <input type="text" class="form-control" id="" />
+                  </div>
+                  <div class="col-md-3">
+                    <label for="" class="form-label">PhilHealth Number</label>
+                    <input type="text" class="form-control" id="" />
+                  </div>
+                  <div class="col-md-5">
+                    <label for="" class="form-label">Category</label>
+                    <input type="text" class="form-control" id="" />
+                  </div>
+                </form>
+                <br />
+                <div class="col p-3">
+                  <form class="row g-2 shadow rounded p-3">
+                    <div
+                      class="h4 pb-2 text-danger border-bottom border-danger"
+                    >
+                      1st Dosage
+                    </div>
+                    <div class="col-md-4">
+                      <label for="" class="form-label">Vaccined Date</label>
+                      <input type="text" class="form-control" id="" />
+                    </div>
+                    <div class="col-md-5">
+                      <label for="" class="form-label"
+                        >Vaccine Manufacturer</label
+                      >
+                      <input type="text" class="form-control" id="" />
+                    </div>
+                    <div class="col-md-3">
+                      <label for="" class="form-label">Lot Number</label>
+                      <input type="text" class="form-control" id="" />
+                    </div>
+                    <div class="col-md-6">
+                      <label for="" class="form-label">Vaccinator Name</label>
+                      <input type="text" class="form-control" id="" />
+                    </div>
+                    <div class="col-md-6">
+                      <label for="" class="form-label">Approved By</label>
+                      <input type="text" class="form-control" id="" />
+                    </div>
+                  </form>
+                  <br />
+                  <form class="row g-2 shadow rounded p-3">
+                    <div
+                      class="h4 pb-2 text-danger border-bottom border-danger"
+                    >
+                      2nd Dosage
+                    </div>
+                    <div class="col-md-4">
+                      <label for="" class="form-label">Vaccined Date</label>
+                      <input type="text" class="form-control" id="" />
+                    </div>
+                    <div class="col-md-5">
+                      <label for="" class="form-label"
+                        >Vaccine Manufacturer</label
+                      >
+                      <input type="text" class="form-control" id="" />
+                    </div>
+                    <div class="col-md-3">
+                      <label for="" class="form-label">Lot Number</label>
+                      <input type="text" class="form-control" id="" />
+                    </div>
+                    <div class="col-md-6">
+                      <label for="" class="form-label">Vaccinator Name</label>
+                      <input type="text" class="form-control" id="" />
+                    </div>
+                    <div class="col-md-6">
+                      <label for="" class="form-label">Approved By</label>
+                      <input type="text" class="form-control" id="" />
+                    </div>
+                  </form>
+                  <br />
+                  <form class="row g-2 shadow rounded p-3">
+                    <div
+                      class="h4 pb-2 text-danger border-bottom border-danger"
+                    >
+                      1st Booster
+                    </div>
+                    <div class="col-md-4">
+                      <label for="" class="form-label">Vaccined Date</label>
+                      <input type="text" class="form-control" id="" />
+                    </div>
+                    <div class="col-md-5">
+                      <label for="" class="form-label"
+                        >Vaccine Manufacturer</label
+                      >
+                      <input type="text" class="form-control" id="" />
+                    </div>
+                    <div class="col-md-3">
+                      <label for="" class="form-label">Lot Number</label>
+                      <input type="text" class="form-control" id="" />
+                    </div>
+                    <div class="col-md-6">
+                      <label for="" class="form-label">Vaccinator Name</label>
+                      <input type="text" class="form-control" id="" />
+                    </div>
+                    <div class="col-md-6">
+                      <label for="" class="form-label">Approved By</label>
+                      <input type="text" class="form-control" id="" />
+                    </div>
+                  </form>
+                  <br />
+                  <form class="row g-2 shadow rounded p-3">
+                    <div
+                      class="h4 pb-2 text-danger border-bottom border-danger"
+                    >
+                      2nd Booster
+                    </div>
+                    <div class="col-md-4">
+                      <label for="" class="form-label">Vaccined Date</label>
+                      <input type="text" class="form-control" id="" />
+                    </div>
+                    <div class="col-md-5">
+                      <label for="" class="form-label"
+                        >Vaccine Manufacturer</label
+                      >
+                      <input type="text" class="form-control" id="" />
+                    </div>
+                    <div class="col-md-3">
+                      <label for="" class="form-label">Lot Number</label>
+                      <input type="text" class="form-control" id="" />
+                    </div>
+                    <div class="col-md-6">
+                      <label for="" class="form-label">Vaccinator Name</label>
+                      <input type="text" class="form-control" id="" />
+                    </div>
+                    <div class="col-md-6">
+                      <label for="" class="form-label">Approved By</label>
+                      <input type="text" class="form-control" id="" />
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </section>
           </div>
         </div>
       </div>
@@ -411,6 +599,6 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="../JS/NavigationBar.js"></script>
+    <script src="../JS/index.js"></script>
   </body>
 </html>
