@@ -14,7 +14,14 @@
       crossorigin="anonymous"
     />
 
-    <link rel="stylesheet" href="../CSS/login.css" />
+    <link rel="stylesheet" href="./src/CSS/Login.css" />
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+      integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
   </head>
   <body>
     <section class="h-100 gradient-form">
@@ -61,6 +68,7 @@
                         <button
                           class="btn btn-block gradient-custom-2 mb-3 text-white"
                           type="button"
+                          onclick="clickLogin()"
                         >
                           Log in
                         </button>
@@ -180,88 +188,63 @@
                 <input
                   type="text"
                   class="form-control"
-                  id="txtMUsername"
+                  id="txtUsername"
                   placeholder="Username"
                 />
-                <label for="txtMUsername">Username</label>
+                <label for="txtUsername">Username</label>
               </div>
               <div class="form-floating mb-3">
                 <input
                   type="password"
                   class="form-control"
-                  id="txtMPassword"
+                  id="txtPassword"
                   placeholder="Password"
                 />
-                <label for="txtMPassword">Password</label>
+                <label for="txtPassword">Password</label>
               </div>
               <div class="form-floating mb-3">
                 <input
                   type="password"
                   class="form-control"
-                  id="txtMConfirmPassword"
+                  id="txtConfirm"
                   placeholder="Password"
                 />
-                <label for="txtMConfirmPassword">Confirm Password</label>
+                <label for="txtConfirm">Confirm Password</label>
               </div>
               <div class="form-floating mb-3">
                 <input
                   type="number"
                   class="form-control"
-                  id="txtMAge"
+                  id="txtAge"
                   placeholder="Age"
                 />
-                <label for="txtMAge">Age</label>
+                <label for="txtAge">Age</label>
               </div>
               <div class="form-floating mb-3">
                 <input
                   type="date"
                   class="form-control"
-                  id="txtMBirthdate"
+                  id="txtBday"
                   placeholder="Birthdate"
                 />
-                <label for="txtMBirthdate">Birthdate</label>
+                <label for="txtBday">Birthdate</label>
               </div>
-              <div>
-                <label>Gender</label>
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="rbMGender"
-                    id="rbMMale"
-                    checked
-                    value="Male"
-                  />
-                  <label class="form-check-label" for="rbMMale"> Male </label>
-                </div>
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="rbMGender"
-                    id="rbMFemale"
-                    value="Female"
-                  />
-                  <label class="form-check-label" for="rbMFemale">
-                    Female
-                  </label>
-                </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="email"
+                  class="form-control"
+                  id="txtEmail"
+                  placeholder="E-mail Address"
+                />
+                <label for="txtEmail">Email Address</label>
               </div>
             </form>
           </div>
           <div class="modal-footer">
             <button
               type="button"
-              class="btn btn-outline-danger"
-              data-bs-dismiss="modal"
-              id="btnMClose"
-            >
-              Close
-            </button>
-            <button
-              type="button"
               class="btn btn-outline-success"
-              id="btnMCreate"
+              id="btnRCreate"
             >
               Create
             </button>
@@ -330,5 +313,7 @@
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
       crossorigin="anonymous"
     ></script>
+
+    <script src="./src/JS/Login.js"></script>
   </body>
 </html>
