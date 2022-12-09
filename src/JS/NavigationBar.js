@@ -12,7 +12,7 @@ function btnMy() {
 }
 
 function signOut() {
-  window.location.href = "../../index.html";
+  window.location.href = "../../index.php";
 }
 
 document.addEventListener("DOMContentLoaded", function (event) {

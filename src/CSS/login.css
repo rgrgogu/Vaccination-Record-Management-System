@@ -27,3 +27,9 @@ body {
         border-bottom-right-radius: .3rem;
     }
 } */
+
+.navSec{
+    --cassiopeia-color-primary: #ffffff;
+  --cassiopeia-color-link: #30638d;
+  --cassiopeia-color-hover: #954b56;
+}
