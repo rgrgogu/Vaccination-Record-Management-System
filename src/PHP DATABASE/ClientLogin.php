@@ -9,47 +9,17 @@ if (isset($_POST['btnLogin'])) {
 
     $query = "SELECT * FROM client_login WHERE username='$username' AND password='$password' LIMIT 1";
     $check_Run = mysqli_query($conn, $query);
+    $check = mysqli_fetch_array($check_Run);
 
-    if(mysqli_num_rows($check_Run) > 0){
-        foreach($check_Run as $data){
-            $username = $data['txtLUsername'];
-            $password = $data['txtLPassword'];
-
-            
-        }
-
-        header('Location: ../../index.php');
+    if(isset($check)){
+        header('Location: ../PHP/Dashboard.php');
     }
-
-
-    if ($password == $confirmPass) {
-
-        $checkEmail = "SELECT email FROM client_login WHERE email='$email'";
-        $check_run = mysqli_query($conn, $checkEmail);
-
-        if (mysqli_num_rows($check_run) > 0) {
-            $_SESSION['message'] = 'E-mail already exists!';
-            header('Location: ../../index.php');
-        } else {
-
-            $query = "INSERT INTO client_login VALUES('$username', '$password', '$confirmPass', '$age', '$birthday', '$email')";
-            $query_run = mysqli_query($conn, $query);
-
-            if ($query_run) {
-                $_SESSION['message'] = "Registered Successfully!";
-                header('Location: ../../index.php');
-                exit(0);
-            } else {
-                $_SESSION['message'] = "Something went wrong!";
-                header('Location: ../../index.php');
-            }
-        }
-    } else {
-        $_SESSION['message'] = "Password do not matched";
+    else{
+        $_SESSION['message'] = "Invalid username or password! Try again!";
         header('Location: ../../index.php');
     }
 } else {
-    header('Location: ./index.php');
+    header('Location: ../../index.php');
     exit(0);
 }
 ?>

@@ -40,7 +40,7 @@ session_start();
                     <p class="text-center">Please login to your account</p>
 
                     <div class="form-outline mb-4">
-                      <input type="email" class="form-control" placeholder="Username" name="txtLUsername" required />
+                      <input type="text" class="form-control" placeholder="Username" name="txtLUsername" required />
                     </div>
 
                     <div class="form-outline mb-4">

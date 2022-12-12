@@ -1,20 +1,3 @@
-$(`#myImmunization`).hide();
-$(`#home`).show();
-
-function home() {
-  $(`#myImmunization`).hide();
-  $(`#home`).show();
-}
-
-function btnMy() {
-  $(`#myImmunization`).show();
-  $(`#home`).hide();
-}
-
-function signOut() {
-  window.location.href = "../../index.php";
-}
-
 document.addEventListener("DOMContentLoaded", function (event) {
   const showNavbar = (toggleId, navId, bodyId, headerId) => {
     const toggle = document.getElementById(toggleId),
