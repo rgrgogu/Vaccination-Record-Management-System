@@ -1,0 +1,48 @@
+encode the email in the database
+get the id
+
+and use it in the admin panel to locate what number it is.
+
+SELECT `clientID`, `lName`, `gName`, `mName`, `suffix`, `sex`, `email`, `mobileNum`, `birthday`, `age` 
+FROM `client_info` 
+INNER JOIN email ON (client_info.email_id = email.email_id)
+INNER JOIN client_login ON (email.email_id = client_login.email_id);
+
+SELECT email_name, password
+FROM `client_login` 
+INNER JOIN email ON (client_login.email_id = email.email_id);
+
+SELECT email_name, password
+FROM `client_login` 
+INNER JOIN email ON (client_login.email_id = email.email_id)
+WHERE email='$email' AND password='$password' LIMIT 1;
+
+SELECT `clientID`, `lName`, `gName`, `mName`, `suffix`, `sex`, `mobileNum`, `birthday`, `age` 
+FROM `client_info` 
+INNER JOIN client_login ON (client_info.email_id = client_login.email_id)
+INNER JOIN client_health ON (client_info.email_id = client_login.email_id)
+WHERE client_info.email_id = '1';
+
+SELECT clientID, lName, gName, mName, suffix, sex, mobileNum, email.email_name, client_login.birthday, client_login.age, client_health.ph_num, category.category_name
+FROM `client_info` 
+INNER JOIN client_login ON (client_info.clientID = client_login.email_id)
+INNER JOIN email ON (client_login.email_id = email.email_id)
+INNER JOIN client_health ON (client_info.clientID = client_health.healthID)
+INNER JOIN category ON (client_health.categoryID = category.categoryID)
+WHERE clientID = '1';
+
+SELECT * 
+FROM `first_dosage`, `second_dosage`, `first_booster`, `second_booster` 
+
+INSERT INTO `second_booster`(`vaccineDate`, `vaccineManufacturer`, `lotNumber`, `vaccinatorName`, `approvedBy`) 
+VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]')
+
+SELECT first_dosage.vaccineDate, first_dosage.vaccineManufacturer, first_dosage.lotNumber, first_dosage.vaccinatorName, first_dosage.approvedBy, 
+second_dosage.vaccineDate, second_dosage.vaccineManufacturer, second_dosage.lotNumber, second_dosage.vaccinatorName, second_dosage.approvedBy, 
+first_booster.vaccineDate, first_booster.vaccineManufacturer, first_booster.lotNumber, first_booster.vaccinatorName, first_booster.approvedBy, 
+second_booster.vaccineDate, second_booster.vaccineManufacturer, second_booster.lotNumber, second_booster.vaccinatorName, second_booster.approvedBy
+FROM `first_dosage`
+INNER JOIN `second_dosage` ON (first_dosage.first_dosageID = second_dosage.second_dosageID)
+INNER JOIN `first_booster` ON (second_dosage.second_dosageID = first_booster.first_boosterID)
+INNER JOIN `second_booster` ON (first_booster.first_boosterID = second_booster.second_boosterID)
+WHERE first_dosageID = '1';

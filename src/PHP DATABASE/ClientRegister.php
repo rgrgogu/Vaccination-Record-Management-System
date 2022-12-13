@@ -12,45 +12,44 @@ $email = "";
 
 // REGISTER ACCOUNT
 if (isset($_POST['btnRCreate'])) {
-    $username = $_POST['txtRUsername'];
+    $email = $_POST['txtREmail'];
     $password = $_POST['txtRPassword'];
     $confirmPass = $_POST['txtRConfirm'];
-    $age = $_POST['txtRAge'];
-    $birthday = $_POST['txtRBday'];
-    $email = $_POST['txtREmail'];
+    $bday = $_POST['txtRBday'];
+    $birthday = new DateTime($_POST['txtRBday']);
+    $today = new DateTime(date('d.m.y'));
+    $age = $today->diff($birthday)->y;
 
     if ($password == $confirmPass) {
 
-        $checkEmail = "SELECT email FROM client_login WHERE email='$email'";
-        $check_run = mysqli_query($conn, $checkEmail);
+        $checkEmail = "SELECT * FROM email WHERE email_name ='$email'";
 
-        if (mysqli_num_rows($check_run) > 0) {
-            $_SESSION['message'] = 'E-mail already exists!';
-            header('Location: ../../index.php');
-        } else {
+        if ($check_run = mysqli_query($conn, $checkEmail)) {
 
-            $query = "INSERT INTO client_login VALUES('$username', '$password', '$confirmPass', '$age', '$birthday', '$email')";
-            $query_run = mysqli_query($conn, $query);
+            $rowcount = mysqli_num_rows($check_run);
 
-            if ($query_run) {
-                $_SESSION['message'] = "Registered Successfully!";
+            if ($rowcount == 0) {
+                $_SESSION['message'] = 'Please contact the VAXpress administration to register your process!';
                 header('Location: ../../index.php');
-                exit(0);
             } else {
-                $_SESSION['message'] = "Something went wrong!";
-                header('Location: ../../index.php');
+                $row = mysqli_fetch_array($check_run);
+                $query = "INSERT INTO client_login VALUES('$row[0]', '$password', '$confirmPass', '$bday', '$age')";
+                try {
+                    $query_run = mysqli_query($conn, $query);
+                    $_SESSION['message'] = "Registered Successfully!";
+                    header('Location: ../../index.php');
+                    exit(0);
+                } catch (Exception $e) {
+                    $_SESSION['message'] = "Something went wrong! Please contact the administrator!";
+                    header('Location: ../../index.php');
+                }
             }
         }
     } else {
         $_SESSION['message'] = "Password do not matched";
         header('Location: ../../index.php');
     }
-}
-else{
+} else {
     header('Location: ./index.php');
     exit(0);
 }
-
-
-
-

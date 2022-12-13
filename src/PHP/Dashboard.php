@@ -1,3 +1,10 @@
+<?php
+require('../PHP DATABASE/HealthDetails.php');
+require('../PHP DATABASE/Dosage.php');
+session_start();
+
+$newPerson = $_SESSION['object'];
+?>
 <!DOCTYPE html>
 <html>
 
@@ -54,8 +61,8 @@
     <!-- CONTENT -->
     <div class="height-100" id="load_home">
         <div class="col pt-4" id="home">
-            <h3>Welcome! Russell Obsequio</h3>
-            <p class="lead">TODAY IS FUCKING FRIDAY!</p>
+            <h3>Welcome! <?php echo $newPerson->getFullName() ?></h3>
+            <p class="lead">Today is <?php echo date("l") . "! " . date("M. d, Y") ?></p>
             <hr />
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
@@ -117,35 +124,35 @@
                 <form class="row g-3 pb-3 bg-danger bg-opacity-10 border border-danger border-start-0 border-end-0">
                     <div class="col-md-4">
                         <label for="" class="form-label">Last Name</label>
-                        <input type="text" class="form-control" id="" />
+                        <input type="text" class="form-control" id="" value="<?php echo $newPerson->getLastName() ?>" disabled />
                     </div>
                     <div class="col-md-4">
                         <label for="" class="form-label">Given Name</label>
-                        <input type="text" class="form-control" id="" />
+                        <input type="text" class="form-control" id="" value="<?php echo $newPerson->getGivenName() ?>" disabled />
                     </div>
                     <div class="col-md-3">
                         <label for="" class="form-label">Middle Name</label>
-                        <input type="text" class="form-control" id="" />
+                        <input type="text" class="form-control" id="" value="<?php echo $newPerson->getMiddleName() ?>" disabled />
                     </div>
                     <div class="col-md-1">
                         <label for="" class="form-label">Suffix</label>
-                        <input type="text" class="form-control" id="" />
+                        <input type="text" class="form-control" id="" value="<?php echo $newPerson->getSuffix() ?>" disabled />
                     </div>
                     <div class="col-md-3">
                         <label for="" class="form-label">Date of Birth</label>
-                        <input type="text" class="form-control" id="" />
+                        <input type="text" class="form-control" id="" value="<?php echo $newPerson->getBirthday() ?>" disabled />
                     </div>
-                    <div class="col-md-1">
+                    <div class="col-md-2">
                         <label for="" class="form-label">Sex</label>
-                        <input type="text" class="form-control" id="" />
+                        <input type="text" class="form-control" id="" value="<?php echo $newPerson->getSex() ?>" disabled />
                     </div>
                     <div class="col-md-3">
                         <label for="" class="form-label">PhilHealth Number</label>
-                        <input type="text" class="form-control" id="" />
+                        <input type="text" class="form-control" id="" value="<?php echo $newPerson->getPhilhealth() ?>" disabled />
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-4">
                         <label for="" class="form-label">Category</label>
-                        <input type="text" class="form-control" id="" />
+                        <input type="text" class="form-control" id="" value="<?php echo $newPerson->getCategory() ?>" disabled />
                     </div>
                 </form>
                 <br />
@@ -156,23 +163,23 @@
                         </div>
                         <div class="col-md-4">
                             <label for="" class="form-label">Vaccined Date</label>
-                            <input type="text" class="form-control" id="" />
+                            <input type="text" class="form-control" id="" value="<?php echo $newPerson->getFirstDosage()->getVaccineDate() ?>" disabled />
                         </div>
                         <div class="col-md-5">
                             <label for="" class="form-label">Vaccine Manufacturer</label>
-                            <input type="text" class="form-control" id="" />
+                            <input type="text" class="form-control" id="" value="<?php echo $newPerson->getFirstDosage()->getVaccineManufacturer() ?>" disabled />
                         </div>
                         <div class="col-md-3">
                             <label for="" class="form-label">Lot Number</label>
-                            <input type="text" class="form-control" id="" />
+                            <input type="text" class="form-control" id="" value="<?php echo $newPerson->getFirstDosage()->getLotNumber() ?>" disabled />
                         </div>
                         <div class="col-md-6">
                             <label for="" class="form-label">Vaccinator Name</label>
-                            <input type="text" class="form-control" id="" />
+                            <input type="text" class="form-control" id="" value="<?php echo $newPerson->getFirstDosage()->getVaccinatorName() ?>" disabled />
                         </div>
                         <div class="col-md-6">
                             <label for="" class="form-label">Approved By</label>
-                            <input type="text" class="form-control" id="" />
+                            <input type="text" class="form-control" id="" value="<?php echo $newPerson->getFirstDosage()->getApprovedBy() ?>" disabled />
                         </div>
                     </form>
                     <br />
@@ -182,23 +189,23 @@
                         </div>
                         <div class="col-md-4">
                             <label for="" class="form-label">Vaccined Date</label>
-                            <input type="text" class="form-control" id="" />
+                            <input type="text" class="form-control" id="" value="<?php echo $newPerson->getSecondDosage()->getVaccineDate() ?>" disabled />
                         </div>
                         <div class="col-md-5">
                             <label for="" class="form-label">Vaccine Manufacturer</label>
-                            <input type="text" class="form-control" id="" />
+                            <input type="text" class="form-control" id="" value="<?php echo $newPerson->getSecondDosage()->getVaccineManufacturer() ?>" disabled />
                         </div>
                         <div class="col-md-3">
                             <label for="" class="form-label">Lot Number</label>
-                            <input type="text" class="form-control" id="" />
+                            <input type="text" class="form-control" id="" value="<?php echo $newPerson->getSecondDosage()->getLotNumber() ?>" disabled />
                         </div>
                         <div class="col-md-6">
                             <label for="" class="form-label">Vaccinator Name</label>
-                            <input type="text" class="form-control" id="" />
+                            <input type="text" class="form-control" id="" value="<?php echo $newPerson->getSecondDosage()->getVaccinatorName() ?>" disabled />
                         </div>
                         <div class="col-md-6">
                             <label for="" class="form-label">Approved By</label>
-                            <input type="text" class="form-control" id="" />
+                            <input type="text" class="form-control" id="" value="<?php echo $newPerson->getSecondDosage()->getApprovedBy() ?>" disabled />
                         </div>
                     </form>
                     <br />
@@ -208,23 +215,23 @@
                         </div>
                         <div class="col-md-4">
                             <label for="" class="form-label">Vaccined Date</label>
-                            <input type="text" class="form-control" id="" />
+                            <input type="text" class="form-control" id="" value="<?php echo $newPerson->getFirstBooster()->getVaccineDate() ?>" disabled />
                         </div>
                         <div class="col-md-5">
                             <label for="" class="form-label">Vaccine Manufacturer</label>
-                            <input type="text" class="form-control" id="" />
+                            <input type="text" class="form-control" id="" value="<?php echo $newPerson->getFirstBooster()->getVaccineManufacturer() ?>" disabled />
                         </div>
                         <div class="col-md-3">
                             <label for="" class="form-label">Lot Number</label>
-                            <input type="text" class="form-control" id="" />
+                            <input type="text" class="form-control" id="" value="<?php echo $newPerson->getFirstBooster()->getLotNumber() ?>" disabled />
                         </div>
                         <div class="col-md-6">
                             <label for="" class="form-label">Vaccinator Name</label>
-                            <input type="text" class="form-control" id="" />
+                            <input type="text" class="form-control" id="" value="<?php echo $newPerson->getFirstBooster()->getVaccinatorName() ?>" disabled />
                         </div>
                         <div class="col-md-6">
                             <label for="" class="form-label">Approved By</label>
-                            <input type="text" class="form-control" id="" />
+                            <input type="text" class="form-control" id="" value="<?php echo $newPerson->getFirstBooster()->getApprovedBy() ?>" disabled />
                         </div>
                     </form>
                     <br />
@@ -234,23 +241,23 @@
                         </div>
                         <div class="col-md-4">
                             <label for="" class="form-label">Vaccined Date</label>
-                            <input type="text" class="form-control" id="" />
+                            <input type="text" class="form-control" id="" value="<?php echo $newPerson->getSecondBooster()->getVaccineDate() ?>" disabled />
                         </div>
                         <div class="col-md-5">
                             <label for="" class="form-label">Vaccine Manufacturer</label>
-                            <input type="text" class="form-control" id="" />
+                            <input type="text" class="form-control" id="" value="<?php echo $newPerson->getSecondBooster()->getVaccineManufacturer() ?>" disabled />
                         </div>
                         <div class="col-md-3">
                             <label for="" class="form-label">Lot Number</label>
-                            <input type="text" class="form-control" id="" />
+                            <input type="text" class="form-control" id="" value="<?php echo $newPerson->getSecondBooster()->getLotNumber() ?>" disabled />
                         </div>
                         <div class="col-md-6">
                             <label for="" class="form-label">Vaccinator Name</label>
-                            <input type="text" class="form-control" id="" />
+                            <input type="text" class="form-control" id="" value="<?php echo $newPerson->getSecondBooster()->getVaccinatorName() ?>" disabled />
                         </div>
                         <div class="col-md-6">
                             <label for="" class="form-label">Approved By</label>
-                            <input type="text" class="form-control" id="" />
+                            <input type="text" class="form-control" id="" value="<?php echo $newPerson->getSecondBooster()->getApprovedBy() ?>" disabled />
                         </div>
                     </form>
                 </div>
@@ -269,35 +276,35 @@
                     </div>
                     <div class="col-md-4">
                         <label for="" class="form-label">Last Name</label>
-                        <input type="text" class="form-control" id="" />
+                        <input type="text" class="form-control" id="" value="<?php echo $newPerson->getLastName() ?>" />
                     </div>
                     <div class="col-md-4">
                         <label for="" class="form-label">Given Name</label>
-                        <input type="text" class="form-control" id="" />
+                        <input type="text" class="form-control" id="" value="<?php echo $newPerson->getGivenName() ?>" />
                     </div>
                     <div class="col-md-3">
                         <label for="" class="form-label">Middle Name</label>
-                        <input type="text" class="form-control" id="" />
+                        <input type="text" class="form-control" id="" value="<?php echo $newPerson->getMiddleName() ?>" />
                     </div>
                     <div class="col-md-1">
                         <label for="" class="form-label">Suffix</label>
-                        <input type="text" class="form-control" id="" />
+                        <input type="text" class="form-control" id="" value="<?php echo $newPerson->getSuffix() ?>" />
                     </div>
                     <div class="col-md-3">
                         <label for="" class="form-label">Date of Birth</label>
-                        <input type="text" class="form-control" id="" />
+                        <input type="text" class="form-control" id="" value="<?php echo $newPerson->getBirthday() ?>" />
                     </div>
                     <div class="col-md-1">
                         <label for="" class="form-label">Sex</label>
-                        <input type="text" class="form-control" id="" />
+                        <input type="text" class="form-control" id="" value="<?php echo $newPerson->getSex() ?>" />
                     </div>
                     <div class="col-md-3">
                         <label for="" class="form-label">Email Address</label>
-                        <input type="text" class="form-control" id="" />
+                        <input type="text" class="form-control" id="" value="<?php echo $newPerson->getEmail() ?>" disabled />
                     </div>
                     <div class="col-md-5">
                         <label for="" class="form-label">Mobile Number</label>
-                        <input type="text" class="form-control" id="" />
+                        <input type="text" class="form-control" id="" value="<?php echo $newPerson->getMobileNum() ?>" />
                     </div>
                 </form>
                 <br>

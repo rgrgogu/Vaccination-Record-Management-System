@@ -40,7 +40,7 @@ session_start();
                     <p class="text-center">Please login to your account</p>
 
                     <div class="form-outline mb-4">
-                      <input type="text" class="form-control" placeholder="Username" name="txtLUsername" required />
+                      <input type="email" class="form-control" placeholder="Email Address" name="txtLEmail" required />
                     </div>
 
                     <div class="form-outline mb-4">
@@ -113,8 +113,8 @@ session_start();
         <form id="rForm" name="rForm" action="./src/PHP DATABASE/ClientRegister.php" method="POST" required>
           <div class="modal-body">
             <div class="form-floating mb-3">
-              <input type="text" class="form-control" name="txtRUsername" placeholder="Username" required />
-              <label for="txtUsername">Username</label>
+              <input type="email" class="form-control" name="txtREmail" placeholder="E-mail Address" required />
+              <label for="txtEmail">Email Address</label>
             </div>
             <div class="form-floating mb-3">
               <input type="password" class="form-control" name="txtRPassword" placeholder="Password" required />
@@ -125,16 +125,8 @@ session_start();
               <label for="txtConfirm">Confirm Password</label>
             </div>
             <div class="form-floating mb-3">
-              <input type="number" class="form-control" name="txtRAge" placeholder="Age" required />
-              <label for="txtAge">Age</label>
-            </div>
-            <div class="form-floating mb-3">
-              <input type="date" class="form-control" name="txtRBday" placeholder="Birthdate" required />
+              <input type="date" class="form-control" name="txtRBday" placeholder="Birthdate" min="1980-01-01" max="2022-12-31" required />
               <label for="txtBday">Birthdate</label>
-            </div>
-            <div class="form-floating mb-3">
-              <input type="email" class="form-control" name="txtREmail" placeholder="E-mail Address" required />
-              <label for="txtEmail">Email Address</label>
             </div>
           </div>
           <div class="modal-footer">
@@ -160,8 +152,8 @@ session_start();
         <div class="modal-body">
           <form>
             <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="txtFUsername" placeholder="Username" />
-              <label for="txtFUsername">Username</label>
+              <input type="email" class="form-control" name="txtFEmail" placeholder="E-mail Address" required />
+              <label for="txtFEmail">Email Address</label>
             </div>
             <div class="form-floating mb-3">
               <input type="password" class="form-control" id="txtFPassword" placeholder="Password" />
