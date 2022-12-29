@@ -1,25 +1,69 @@
-$(`#myImmunization`).hide();
-$(`#myProfile`).hide();
+$(`#searchProfile`).hide();
+$(`#editPerson`).hide();
+$(`#addPerson`).hide();
 $(`#home`).show();
 
 function home() {
-  $(`#myImmunization`).hide();
+  $(`#searchProfile`).hide();
+  $(`#editPerson`).hide();
+  $(`#addPerson`).hide();
   $(`#home`).show();
-  $(`#myProfile`).hide();
 }
 
-function btnMy() {
-  $(`#myImmunization`).show();
+function btnSearchPerson() {
+  $(`#searchProfile`).show();
+  $(`#editPerson`).hide();
+  $(`#addPerson`).hide();
   $(`#home`).hide();
-  $(`#myProfile`).hide();
 }
 
-function btnProfile() {
-  $(`#myProfile`).show();
+function btnEditPerson() {
+  $(`#searchProfile`).hide();
+  $(`#editPerson`).show();
+  $(`#addPerson`).hide();
   $(`#home`).hide();
-  $(`#myImmunization`).hide();
 }
 
+function btnAddPerson() {
+  $(`#searchProfile`).hide();
+  $(`#editPerson`).hide();
+  $(`#addPerson`).show();
+  $(`#home`).hide();
+}
+function signOut() {
+  window.location.href = "../../index.php";
+}$(`#searchProfile`).hide();
+$(`#editPerson`).hide();
+$(`#addPerson`).hide();
+$(`#home`).show();
+
+function home() {
+  $(`#searchProfile`).hide();
+  $(`#editPerson`).hide();
+  $(`#addPerson`).hide();
+  $(`#home`).show();
+}
+
+function btnSearchPerson() {
+  $(`#searchProfile`).show();
+  $(`#editPerson`).hide();
+  $(`#addPerson`).hide();
+  $(`#home`).hide();
+}
+
+function btnEditPerson() {
+  $(`#searchProfile`).hide();
+  $(`#editPerson`).show();
+  $(`#addPerson`).hide();
+  $(`#home`).hide();
+}
+
+function btnAddPerson() {
+  $(`#searchProfile`).hide();
+  $(`#editPerson`).hide();
+  $(`#addPerson`).show();
+  $(`#home`).hide();
+}
 function signOut() {
   window.location.href = "../../index.php";
 }
