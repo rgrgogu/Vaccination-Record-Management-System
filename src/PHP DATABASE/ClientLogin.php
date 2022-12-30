@@ -113,8 +113,7 @@ if (isset($_POST['btnLogin'])) {
                     );
 
                     $_SESSION['object'] = $newPerson;
-
-                    header('Location: ../PHP/Dashboard.php');
+                    header('Location: ../PHP/Preloader.php');
                 }
             } catch (Exception $e) {
                 $_SESSION['message'] = "Something went wrong! Please contact the administrator [ERR44]!";
@@ -125,9 +124,8 @@ if (isset($_POST['btnLogin'])) {
             header('Location: ../../index.php');
         }
     } catch (Exception $e) {
-        echo $e;
-        // $_SESSION['message'] = "Something went wrong! Please contact the administrator 1 !";
-        // header('Location: ../../index.php');
+        $_SESSION['message'] = "Something went wrong! Please contact the administrator [ERR 128]!";
+        header('Location: ../../index.php');
     }
 } else {
     header('Location: ../../index.php');

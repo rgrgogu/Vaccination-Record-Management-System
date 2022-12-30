@@ -4,6 +4,8 @@
     class HealthDetails extends Person{
         private $philhealth;
         private $category;
+
+        // OBJECT
         private $firstDosage;
         private $secondDosage;
         private $firstBooster;
